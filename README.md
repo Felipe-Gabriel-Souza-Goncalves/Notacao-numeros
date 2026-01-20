@@ -6,25 +6,32 @@ Ex: 1000000000 = 1.0bi ou 1.0b
 
 ## Como usar?
 A função de conversão se chama ```transformNum``` e possui **3** parâmetros:
-### **1# - Passe um número ou string em formato numérico**
-(```"100000"```) ✅ <br> 
-(```"100.000"```) ❌
+### **1# - Passe SOMENTE número ou string do número**
+```transformNum(100000)``` ✅ (Desejável) <br> 
+```transformNum(-100000)``` ✅ <br>
+```transformNum(100.000)``` ✅ <br>
+```transformNum("100.000")``` ✅ <br>
 
+```transformNum("meu número é 1000")``` ❌ <br>
+```transformNum("onze mil")``` ❌ <br>
+  
 ### **2# - Precisão do número**
 
 Ex: <br>
-```transformNum(1234567, 0)``` ➡️ 1mi <br>
-```transformNum(1234567, 1)``` ➡️ 1.2mi (Padrão) <br>
-```transformNum(1234567, 2)``` ➡️ 1.23mi <br>
+```transformNum(2345678, 0)``` ➡️ 2 milhões <br>
+```transformNum(2345678, 1)``` ➡️ 2.3 milhões (Padrão) <br>
+```transformNum(2345678, 2)``` ➡️ 2.34 milhões <br>
 
-### **3# - Sufixo extenso (padrão) ou curto**
+_Caso a precisão seja maior que o número, o restante dos números serão 0_
 
-**Extenso:** <br>
-```transformNum(1234567, 2)``` ➡️ 123.45mi <br>
-```transformNum(1234567, 2, False)``` ➡️ 123.45mi <br>
+### **3# - Sufixo extenso  ou curto**
+
+**Extenso:** (padrão) <br> 
+```transformNum(2345678, 1)``` ➡️ 2.3 milhões <br>
+```transformNum(2345678, 1, False)``` ➡️ 2.3 milhões <br>
 
 **Curto:** <br>
-```transformNum(1234567, 2, True)``` ➡️ 123.45m <br>
+```transformNum(2345678, 1, True)``` ➡️ 2.3mi <br>
 
 ## Outros arquivos
 - [Atualizações do projeto](/markdown/CHANGELOG.md) <br>
