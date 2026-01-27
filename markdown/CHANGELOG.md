@@ -1,4 +1,10 @@
-# Versão atual - [v1.0]
+# Versão atual - [v1.1]
+
+## v1.1 - 26/01/2026
+- Correção de mal processamento de filtros no número passado
+- Números além dos decilhões recebem notação "e" (potência de 10)
+- Correção de sufixo "septilhões" inexistente
+- Arquivo de testes simples e demonstrativos
 
 ## v1.0 - 20/01/2026
 - Filtros para atender string em outros formatos

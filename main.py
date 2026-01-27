@@ -1,7 +1,7 @@
 import math
 
 # Arrays de sufixos disponíveis
-sufixosLongos = [" mil", " milhões", " bilhões", " trilhões", " quadrilhões", " quintilhões", " sextilhões", " octilhões", " nonilhões", " decilhões"]
+sufixosLongos = [" mil", " milhões", " bilhões", " trilhões", " quadrilhões", " quintilhões", " sextilhões", " septilhões", " octilhões", " nonilhões", " decilhões"]
 sufixosCurtos = ["k", "mi", "bi", "tri", "qua", "qui", "sex", "sep", "oct", "non", "dec"]
 
 def transformNum(num, precisao = 1, curto = False):
@@ -27,7 +27,7 @@ def transformNum(num, precisao = 1, curto = False):
   finalString = ""
 
   # Se o número for negativo
-  if(num[0] == "-"):
+  if(isinstance(num, str) and num[0] == "-"):
     finalString += "-"
 
   # Adiciona os números necessários antes do ponto
@@ -46,11 +46,16 @@ def transformNum(num, precisao = 1, curto = False):
       
       finalString += stringNum[j]
 
+  # Adiciona notação "e" caso o número seja grande demais
+  if(index >= len(sufixosLongos)):
+      finalString += "e"+ str(size - endFor)
+
   # Adiciona o sufixo (longo/curto)
-  if(curto):
-    finalString += sufixosCurtos[index]
   else:
-    finalString += sufixosLongos[index]
+    if(curto):
+      finalString += sufixosCurtos[index]
+    else:
+      finalString += sufixosLongos[index]
 
   return finalString
 
@@ -63,3 +68,4 @@ def filterStringNum(stringNum):
   stringNum = stringNum.replace("-", "")
 
   return stringNum
+
